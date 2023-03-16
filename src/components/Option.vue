@@ -1,8 +1,8 @@
 <template>
     <div id="option">
         <div id="content">
-        <span style="float: left">{{ name }}</span>
-        <n-switch v-model:value="status" @update:value="$emit('update:open', status)" style="float: right;"></n-switch>
+            <span style="float: left">{{ name }}</span>
+            <n-switch v-model:value="status" @update:value="$emit('update:open', status)" style="float: right;"></n-switch>
         </div>
     </div>
 </template>
@@ -18,11 +18,10 @@ console.log(props.open)
 const status = ref(props.open)
 </script>
 
-<style>
-#option{
+<style scoped>
+#option {
     display: grid;
     align-items: center;
-    min-height: 30px;
+    min-height: 40px;
 }
-
 </style>
