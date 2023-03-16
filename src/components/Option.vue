@@ -1,14 +1,28 @@
 <template>
-    <n-switch  v-model:value="status" @update:value="$emit('update:open', status)"></n-switch>
+    <div id="option">
+        <div id="content">
+        <span style="float: left">{{ name }}</span>
+        <n-switch v-model:value="status" @update:value="$emit('update:open', status)" style="float: right;"></n-switch>
+        </div>
+    </div>
 </template>
 
 <script lang="ts" setup>
 import { NSwitch } from 'naive-ui'
-import {ref} from 'vue'
+import { ref } from 'vue'
 const props = defineProps({
-    open: Boolean
+    open: Boolean,
+    name: String
 })
 console.log(props.open)
 const status = ref(props.open)
 </script>
 
+<style>
+#option{
+    display: grid;
+    align-items: center;
+    min-height: 30px;
+}
+
+</style>
