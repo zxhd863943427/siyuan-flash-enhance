@@ -24,4 +24,9 @@ const status = ref(props.open)
     align-items: center;
     min-height: 40px;
 }
+
+#content {
+    display: flex;
+    justify-content: space-between;
+}
 </style>
