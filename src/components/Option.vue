@@ -22,7 +22,7 @@ const status = ref(props.open)
 #option {
     display: grid;
     align-items: center;
-    min-height: 40px;
+    min-height: 30px;
 }
 
 #content {
