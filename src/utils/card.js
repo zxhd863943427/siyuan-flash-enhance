@@ -213,19 +213,24 @@ async function dynamiMarkCard(useBulitIn) {
         return
     }
     //否则说明为取消标记，需要判断是否取消了所有标记
-    // console.log("取消标记")
-    let markNode = selectParent.querySelectorAll("span[data-type='mark']")
-    // console.log("markNode ",markNode)
-    if (markNode.length <= 0) {
-        let MarkCardList = [selectParent.parentElement.getAttribute("data-node-id")]
-        // console.log("MarkCardList ",MarkCardList)
-        let body = {
-            deckID: '',
-            blockIDs: MarkCardList,
-        };
-        // console.log("body ",body)
-        let res = await request("/api/riff/removeRiffCards", body);
-        // console.log("res ",res.code)
+    setTimeout(async ()=>{await removeCard();}, 350)
+    
+
+    async function removeCard() {
+        // console.log("取消标记")
+        let markNode = selectParent.querySelectorAll("span[data-type='mark']");
+        // console.log("markNode ",markNode)
+        if (markNode.length <= 0) {
+            let MarkCardList = [selectParent.parentElement.getAttribute("data-node-id")];
+            // console.log("MarkCardList ",MarkCardList)
+            let body = {
+                deckID: '',
+                blockIDs: MarkCardList,
+            };
+            // console.log("body ",body)
+            let res = await request("/api/riff/removeRiffCards", body);
+            // console.log("res ",res.code)
+        }
     }
 }
 
@@ -233,6 +238,6 @@ export async function openDynamiMarkCard(openDynamiMark, useBulitIn){
     if (!openDynamiMark){
         return;
     }
-    setTimeout(()=>{dynamiMarkCard(useBulitIn)}, 350)
+    setTimeout(()=>{dynamiMarkCard(useBulitIn)}, 100)
     // dynamiMarkCard(useBulitIn)
 }
