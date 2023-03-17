@@ -21,11 +21,8 @@ const labFeature = [
 ]
 const dangerousFeature = [
   { content: "清除当页闪卡", func: removeCards },
-  { content: "debug", func: testClick }
 ]
-function testClick() {
-  console.log(labFeature[0]["status"].value)
-}
+
 
 let settingConfig = {
     beautifulFeature: beautifulFeature,
