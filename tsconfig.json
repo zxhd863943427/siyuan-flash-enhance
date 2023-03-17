@@ -1,4 +1,8 @@
 {
+  "compilerOptions": {
+    "allowJs": true,
+    "types":["node"]
+  },
   "files": [],
   "references": [
     {
@@ -10,5 +14,5 @@
     {
       "path": "./tsconfig.vitest.json"
     }
-  ]
+  ],
 }

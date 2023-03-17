@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@types/jsdom': ^21.1.0
-  '@types/node': ^18.14.2
+  '@types/node': ^18.15.3
   '@vitejs/plugin-vue': ^4.0.0
   '@vue/test-utils': ^2.3.0
   '@vue/tsconfig': ^0.1.3
