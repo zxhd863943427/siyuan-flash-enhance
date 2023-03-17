@@ -41,7 +41,7 @@ export default class CardPlugin extends Plugin {
 
     constructor() {
         super()
-        this.el = document.createElement('button')
+        this.el = document.createElement('div')
         this.sheet = document.createElement('div')
     }
 
