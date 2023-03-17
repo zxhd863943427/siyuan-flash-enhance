@@ -1,15 +1,17 @@
 <template>
-  <n-card  style="min-width: 300px" class="menu">
+  <n-card style="min-width: 300px" class="menu">
     <template #header>
       <div style="color:var(--b3-theme-on-background)">
         管理界面
       </div>
     </template>
-      <div class="option">
-    危险功能
+    <div class="option">
+      危险功能
     </div>
-
-    <MyButton :name="dangerousFeature[0].content" :click-func="dangerousFeature[0].func"></MyButton>
+    <template v-for="item in dangerousFeature">
+      <MyButton :name="item.content" :click-func="item.func"></MyButton>
+    </template>
+    
 
     <div class="option">
       美化功能
@@ -35,26 +37,38 @@ import Option from "./components/Option.vue"
 import MyButton from "./components/MyButton.vue"
 import { ref, watch } from 'vue'
 
-const beautifulFeature = [
-  { content: "闪卡样式增强", status: ref(false) },
-  { content: "复习挖空增强", status: ref(false) },
-  { content: "类remnote复习界面", status: ref(false) },
-  { content: "层级闪卡", status: ref(false) },
+const props = defineProps({
+  beautifulFeature: Array<{
+    content: string;
+    status: Ref<T>;
+  }>,
+  labFeature: Array<{
+    content: string;
+    status: Ref<T>;
+  }>,
+  dangerousFeature: Array<{ content: string, func: () => void }>
+})
 
-]
+// const beautifulFeature = [
+//   { content: "闪卡样式增强", status: ref(false) },
+//   { content: "复习挖空增强", status: ref(false) },
+//   { content: "类remnote复习界面", status: ref(false) },
+//   { content: "层级闪卡", status: ref(false) },
 
-const labFeature = [
-  { content: "内置卡包制卡", status: ref(false) }, 
-  { content: "数学块遮挡制卡", status: ref(false) },
-  { content: "沉浸式制卡", status: ref(false) },
+// ]
 
-]
-const dangerousFeature = [
-  { content: "清除当页闪卡", func: testClick },
-]
-function testClick() {
-  console.log("It click!")
-}
+// const labFeature = [
+//   { content: "自定义卡包制卡", status: ref(false) },
+//   { content: "数学块遮挡制卡", status: ref(false) },
+//   { content: "沉浸式制卡", status: ref(false) },
+
+// ]
+// const dangerousFeature = [
+//   { content: "清除当页闪卡", func: testClick },
+// ]
+// function testClick() {
+//   console.log("It click!")
+// }
 
 
 
@@ -66,8 +80,9 @@ function testClick() {
   font-weight: 600;
   margin: 5px 0px 0px;
 }
-.menu{
+
+.menu {
   color: var(--b3-theme-on-background);
-  background-color:  var(--b3-menu-background);
+  background-color: var(--b3-menu-background);
 }
 </style>
