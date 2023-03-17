@@ -1,8 +1,9 @@
 import { createApp,ref } from 'vue'
 import App from './App.vue'
 import TopButton from './components/TopButton.vue'
+import sheet from './components/sheet.vue'
 import { Plugin, Menu, clientApi } from 'siyuan'
-import { addCards,removeCards } from './utils/card'
+import { addCards,removeCards,openDynamiMarkCard } from './utils/card'
 
 const beautifulFeature = [
   { content: "闪卡样式增强", status: ref(false) },
@@ -39,10 +40,12 @@ let settingConfig = {
 
 export default class CardPlugin extends Plugin {
     public el: HTMLElement
+    public sheet: HTMLElement
 
     constructor() {
         super()
         this.el = document.createElement('button')
+        this.sheet = document.createElement('div')
     }
 
     onload() {
@@ -62,9 +65,27 @@ export default class CardPlugin extends Plugin {
             event.stopPropagation()
         })
         clientApi.addToolbarLeft(this.el)
+
+        //注册动态制卡快捷键
+        this.registerCommand({
+            command: "openDynamiMarkCard",
+            shortcut: "alt+d",
+            description: "根据菜单的选项，打开动态制卡功能",
+            callback: () =>{openDynamiMarkCard(
+                labFeature[2]["status"].value,
+                labFeature[0]["status"].value)
+                },
+    })
+
+        //插入小型功能sheet
+        const AppSheet = createApp(sheet,settingConfig)
+        AppSheet.mount(this.sheet)
+        let base = document.querySelector("head")
+        base?.appendChild(this.sheet)
     }
 
     onunload() {
         this.el && this.el.remove();
+        this.sheet && this.sheet.remove();
     }
 }
