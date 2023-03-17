@@ -2,7 +2,7 @@
     <div id="option">
         <div id="content">
             <span style="float: left; margin: auto 0">{{ name }}</span>
-            <n-button @click="props.clickFunc" style="float: right" size="small"> warning </n-button>
+            <n-button @click="props.clickFunc" style="float: right" size="small" color="#18a058"> warning </n-button>
         </div>
     </div>
 </template>
