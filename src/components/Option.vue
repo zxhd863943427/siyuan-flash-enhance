@@ -14,7 +14,7 @@ const props = defineProps({
     open: Boolean,
     name: String
 })
-console.log(props.open)
+// console.log(props.open)
 const status = ref(props.open)
 </script>
 
