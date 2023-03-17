@@ -65,5 +65,7 @@
 
 ### 感谢名单
 [zuoez02](https://github.com/zuoez02) 大佬创建的 [社区插件系统](https://github.com/zuoez02/siyuan-plugin-system)
+
 [svchord](https://github.com/svchord) 大佬 [日历插件项目](https://github.com/svchord/siyuan-arco-calendar) 的参考
+
 社区 [BryceAndJuly](https://ld246.com/member/BryceAndJuly) 大佬实现的原型 [【分享】使用当前文档的二级标题快速制作闪卡](https://ld246.com/article/1674135504898)
