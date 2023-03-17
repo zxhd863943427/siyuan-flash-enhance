@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     MyButton: typeof import('./src/components/MyButton.vue')['default']
     Option: typeof import('./src/components/Option.vue')['default']
+    Sheet: typeof import('./src/components/sheet.vue')['default']
     TopButton: typeof import('./src/components/TopButton.vue')['default']
   }
 }
