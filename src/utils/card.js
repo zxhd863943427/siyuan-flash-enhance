@@ -1,7 +1,7 @@
 import {request, showMessage, getCurrentPage,getHpath,iterArr} from "./utils.js"
 // 传入列表下的段落，返回被标记段落的父节点：列表项的id
 function fliterListCard(node) {
-    let re = /(>>|(》》))\s?\u200b?$/;
+    let re = /(>>|(》》)|(\|\|)|(\?)|(？))\s?\u200b?$/;
     if (re.test(node.innerText)) {
         return {
             status: "ok",
