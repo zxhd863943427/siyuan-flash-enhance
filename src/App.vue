@@ -9,7 +9,7 @@
     危险功能
     </div>
 
-    <MyButton :name="tempClickData[0].content" :click-func="tempClickData[0].func"></MyButton>
+    <MyButton :name="dangerousFeature[0].content" :click-func="dangerousFeature[0].func"></MyButton>
 
     <div class="option">
       美化功能
@@ -44,11 +44,12 @@ const beautifulFeature = [
 ]
 
 const labFeature = [
+  { content: "内置卡包制卡", status: ref(false) }, 
   { content: "数学块遮挡制卡", status: ref(false) },
   { content: "沉浸式制卡", status: ref(false) },
 
 ]
-const tempClickData = [
+const dangerousFeature = [
   { content: "清除当页闪卡", func: testClick },
 ]
 function testClick() {
