@@ -11,7 +11,7 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "siyuan": "^0.3.12",
+    "siyuan": "^0.3.17",
     "unplugin-auto-import": "^0.15.1",
     "unplugin-vue-components": "^0.24.1",
     "vite-plugin-css-injected-by-js": "^3.1.0",
