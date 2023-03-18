@@ -62,6 +62,9 @@
 #### 沉浸式制卡（不稳定）
 ![Alt text](img/%E6%B2%89%E6%B5%B8%E5%BC%8F%E5%88%B6%E5%8D%A1.gif)
 
+### 缺陷
+* [x] 配置不能保存
+* [ ] 沉浸式制卡不够稳定, 移除卡片有概率无法移除样式（但是卡片确实已经从卡包移除）（已改进了部分）
 
 ### 感谢名单
 [zuoez02](https://github.com/zuoez02) 大佬创建的 [社区插件系统](https://github.com/zuoez02/siyuan-plugin-system)
