@@ -91,25 +91,26 @@
         <div v-if="labFeature[1].status.value">
             <component is="style">
                 /*隐藏面包屑中的latex文本*/
-                .card__block:has(.mord[style='color:#6495ed;'])
+                .card__block:has(span[style='color:#6495ed;'])
                 span.protyle-breadcrumb__item.protyle-breadcrumb__item--active {
                 display: none;
                 }
 
                 /*提供公式制卡的遮挡效果*/
-                .card__block--hide .mord:has(.mord[style='color:#6495ed;'])::before {
+                .card__block--hide span:has(>span[style='color:#6495ed;'])::before {
                 content: " [...] ";
                 color: var(--b3-theme-on-background);
                 font-size: 16px;
                 }
 
-                .card__block--hide .mord:has(.mord[style='color:#6495ed;']) > span {
+                .card__block--hide span:has(>span[style='color:#6495ed;']) > span {
                 display: none;
                 }
 
-                .card__block--hide .mord:has(.mord[style='color:#6495ed;']) {
+                .card__block--hide span:has(>span[style='color:#6495ed;']) {
                 font-size: 0px;
                 }
+
             </component>
             <component is="script">
                 (() => {
