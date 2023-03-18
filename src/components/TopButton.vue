@@ -1,12 +1,9 @@
 <template>
     <button class="toolbar__item">
-        <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4526" width="200"
-            height="200">
-            <path
-                d="M928 160H96a32 32 0 0 0-32 32v672a32 32 0 0 0 32 32h832a32 32 0 0 0 32-32V192a32 32 0 0 0-32-32z m-32 672H128V224h768v608z"
-                p-id="4527" fill="#9aa0a6"></path>
-        <path
-            d="M230.592 448.096H544a32 32 0 1 0 0-64H230.592a32 32 0 0 0 0 64zM230.592 640.096H544a32 32 0 1 0 0-64H230.592a32 32 0 1 0 0 64zM768 704a32 32 0 0 0 32-32V350.016a32 32 0 1 0-64 0V672a32 32 0 0 0 32 32z"
-            p-id="4528" fill="#9aa0a6"></path>
-    </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-ipad-bolt" width="32" height="32" viewBox="0 0 22 22" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M13.5 21h-7.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v7" fill="none"></path>
+   <path d="M9 18h4"></path>
+   <path d="M19 16l-2 3h4l-2 3"></path>
+</svg>
 </button></template>
