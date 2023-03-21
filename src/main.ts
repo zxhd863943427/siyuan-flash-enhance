@@ -16,6 +16,8 @@ export default class CardPlugin extends Plugin {
     constructor() {
         super()
         this.el = document.createElement('div')
+        this.el.classList.add('toolbar__item', 'b3-tooltips', 'b3-tooltips__se')
+        this.el.setAttribute('aria-label', '右键打开菜单')
         this.sheet = document.createElement('div')
         this.settingConfig = null
     }
@@ -28,11 +30,13 @@ export default class CardPlugin extends Plugin {
 
         const button = createApp(TopButton)
         button.mount(this.el)
+        //添加左键一键制卡功能
         this.el.addEventListener('click', (event) => {
             addCards(this.settingConfig.labFeature[0]["status"].value)
             event.stopPropagation()
             event.preventDefault()
         })
+        //添加右键打开菜单功能
         this.el.addEventListener('contextmenu', (event) => {
             const menu = document.createElement('div')
             const app = createApp(App,this.settingConfig)
