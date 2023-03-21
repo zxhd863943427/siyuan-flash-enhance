@@ -3,12 +3,12 @@
         <!-- 闪卡样式增强 -->
         <div v-if="beautifulFeature[0].status.value">
             <component is="style">
-                /* 闪卡样式增强 */
+                /* 闪卡样式增强 v0.04 */
                 .protyle-wysiwyg .li[data-node-id][custom-riff-decks] {
                 position: relative;
                 display: block;
                 border-left: 0.15em solid #ff6a6a;
-                padding: 5px 0.2em !important;
+                padding: 0px 0.2em 0.1em 0px !important;
                 box-shadow: 0.1em 0.1em 0.2em #aaaaaa;
                 background-image: none;
                 margin: 0.2em 0em 0em 0em;
@@ -35,7 +35,7 @@
         <!-- 复习挖空增强 -->
         <div v-if="beautifulFeature[1].status.value">
             <component is="style">
-                /*增强闪卡的遮挡效果*/
+                /*增强闪卡的遮挡效果 v0.01 */
                 .card__block--hide span[data-type~=mark]::before {
                 content: " [...] ";
                 color: var(--b3-theme-on-background);
@@ -50,6 +50,7 @@
         <!-- 类remnote复习界面 -->
         <div v-if="beautifulFeature[2].status.value">
             <component is="style">
+                /*类remnote界面 v0.04 */
                 /*全宽显示*/
                 .card__block .protyle-breadcrumb__bar span {
                 max-width: 100%;
@@ -79,6 +80,7 @@
         <!-- 层级闪卡 -->
         <div v-if="beautifulFeature[3].status.value">
             <component is="style">
+                /* 层级闪卡 v0.01 */
                 /* 隐藏二级以下的列表 */
                 .card__block div.li>div.list>div.li>div.list>div.li {
                 display: none;
@@ -90,6 +92,7 @@
         <!-- 数学块遮挡制卡 -->
         <div v-if="labFeature[1].status.value">
             <component is="style">
+                /*数学制卡 v0.05 */
                 /*隐藏面包屑中的latex文本*/
                 .card__block:has(span[style='color:#6495ed;'])
                 span.protyle-breadcrumb__item.protyle-breadcrumb__item--active {
