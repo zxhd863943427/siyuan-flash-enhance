@@ -1,17 +1,16 @@
 <template>
-  <n-card style="min-width: 300px" class="menu">
-    <template #header>
-      <div style="color:var(--b3-theme-on-background)">
-        管理界面
-      </div>
-    </template>
+  <div style="min-width: 250px" class="menu">
+
+    <div style="color:var(--b3-theme-on-background);font-size:1.35em;margin: 20px 0px;">
+      管理界面
+    </div>
     <div class="option">
       危险功能
     </div>
     <template v-for="item in dangerousFeature">
       <MyButton :name="item.content" :click-func="item.func"></MyButton>
     </template>
-    
+
 
     <div class="option">
       美化功能
@@ -28,11 +27,11 @@
       <Option :name="item.content" v-model:open="item.status.value"></Option>
     </template>
 
-  </n-card>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { NCard } from 'naive-ui'
+// import { NCard } from 'naive-ui'
 import Option from "./components/Option.vue"
 import MyButton from "./components/MyButton.vue"
 import { ref, watch } from 'vue'
@@ -84,5 +83,10 @@ const props = defineProps({
 .menu {
   color: var(--b3-theme-on-background);
   background-color: var(--b3-menu-background);
+  margin: 1px;
+  padding: 10px 20px;
+  /* 添加边框 */
+  border: 1px solid var(--b3-theme-surface-lighter);;
+  border-radius: 3px;
 }
 </style>
