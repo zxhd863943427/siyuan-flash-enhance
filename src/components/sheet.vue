@@ -117,7 +117,7 @@
             </component>
             <component is="script">
                 (() => {
-                tempMacro = JSON.parse(window.siyuan.config.editor.katexMacros || "{}");
+                var tempMacro = JSON.parse(window.siyuan.config.editor.katexMacros || "{}");
                 tempMacro["\\tempMark"] = "\\color{#6495ed}";
                 tempMacro["\\mark"] = "{\\tempMark#1}";
                 window.siyuan.config.editor.katexMacros = JSON.stringify(tempMacro);
