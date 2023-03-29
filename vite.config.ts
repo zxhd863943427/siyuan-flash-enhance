@@ -51,6 +51,7 @@ export default defineConfig({
         },
         rollupOptions: {
             external: ['siyuan']
-        }
+        },
+        minify: false,
     }
 })
