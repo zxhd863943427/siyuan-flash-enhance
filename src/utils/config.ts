@@ -100,7 +100,7 @@ async function getSetting(localConfig: null | any) {
     if (!localConfig) {
         return initSetting()
     }
-    let setDictText = await localConfig.text()
+    let setDictText = localConfig
     let setDict = JSON.parse(setDictText)
     
     return loadSetting(setDict)
