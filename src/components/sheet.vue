@@ -34,8 +34,20 @@
         </div>
         <!-- 复习挖空增强 -->
         <div v-if="beautifulFeature[1].status.value">
-            <component is="style">
-                /*增强闪卡的遮挡效果 v0.01 */
+            <component is="style" v-if="enableNew">
+                /*增强闪卡的遮挡效果 v0.02 */
+                .card__block--hidemark span[data-type~=mark]::before {
+                content: " [...] ";
+                color: var(--b3-theme-on-background);
+                font-size: 16px;
+                }
+
+                .card__block--hidemark span[data-type~=mark] {
+                font-size: 0px;
+                }
+            </component>
+            <component is="style" v-if="!enableNew">
+                /*增强闪卡的遮挡效果 v0.02 */
                 .card__block--hide span[data-type~=mark]::before {
                 content: " [...] ";
                 color: var(--b3-theme-on-background);
@@ -91,7 +103,31 @@
     <div v-if="labFeature">
         <!-- 数学块遮挡制卡 -->
         <div v-if="labFeature[1].status.value">
-            <component is="style">
+            <component is="style" v-if="enableNew">
+                /*数学制卡 v0.06 */
+                /*隐藏面包屑中的latex文本*/
+                .card__block:has(span[style='color:#6495ed;'])
+                span.protyle-breadcrumb__item.protyle-breadcrumb__item--active {
+                display: none;
+                }
+
+                /*提供公式制卡的遮挡效果*/
+                .card__block--hidemark span:has(>span[style='color:#6495ed;'])::before {
+                content: " [...] ";
+                color: var(--b3-theme-on-background);
+                font-size: 16px;
+                }
+
+                .card__block--hidemark span:has(>span[style='color:#6495ed;']) > span {
+                display: none;
+                }
+
+                .card__block--hidemark span:has(>span[style='color:#6495ed;']) {
+                font-size: 0px;
+                }
+
+            </component>
+            <component is="style" v-if="!enableNew">
                 /*数学制卡 v0.05 */
                 /*隐藏面包屑中的latex文本*/
                 .card__block:has(span[style='color:#6495ed;'])
@@ -136,6 +172,15 @@
 </template>
 
 <script lang="ts" setup>
+import { valid, satisfies } from "semver"
+
+
+function enableNewVersion(version:string, needVersion:string) {
+    if (valid(version) && satisfies(version, needVersion)) {
+        return false
+    }
+    return true
+}
 const props = defineProps({
     beautifulFeature: Array<{
         content: string;
@@ -147,4 +192,7 @@ const props = defineProps({
     }>,
     dangerousFeature: Array<{ content: string, func: () => void }>
 })
+const needV2 = "< 2.8.1"
+const enableNew = enableNewVersion(eval("globalThis.siyuan.config.system.kernelVersion"),needV2)
+console.log("闪卡插件新版本要求拒绝:",needV2,", 启用新版本：",enableNew)
 </script>

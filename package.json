@@ -11,6 +11,7 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
+    "semver": "^7.3.8",
     "siyuan": "^0.3.17",
     "terser": "^5.16.8",
     "unplugin-auto-import": "^0.15.1",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@types/jsdom": "^21.1.0",
     "@types/node": "^18.15.3",
+    "@types/semver": "^7.3.13",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/test-utils": "^2.3.0",
     "@vue/tsconfig": "^0.1.3",
