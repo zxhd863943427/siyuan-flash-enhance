@@ -200,7 +200,14 @@ async function dynamiMarkCard(useBulitIn) {
 
     //如果为selectParent.tagName === "SPAN"，说明为标记，进入制卡流程
     if (selectParent.tagName === "SPAN") {
-        let MarkCardList = iterArr([selectParent], fliterDyMarkCard)
+        setTimeout(async ()=>{await dyAddCard();}, 500)
+    }
+    //否则说明为取消标记，需要判断是否取消了所有标记
+    setTimeout(async ()=>{await removeCard();}, 500)
+    
+
+    async function dyAddCard() {
+        let MarkCardList = iterArr([selectParent], fliterDyMarkCard);
 
         for (let deckIndex in customDeckIdArr) {
             let body = {
@@ -210,11 +217,8 @@ async function dynamiMarkCard(useBulitIn) {
 
             let res = await request("/api/riff/addRiffCards", body);
         }
-        return
+        return;
     }
-    //否则说明为取消标记，需要判断是否取消了所有标记
-    setTimeout(async ()=>{await removeCard();}, 350)
-    
 
     async function removeCard() {
         // console.log("取消标记")
