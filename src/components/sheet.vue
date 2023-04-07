@@ -62,7 +62,7 @@
         <!-- 类remnote复习界面 -->
         <div v-if="beautifulFeature[2].status.value">
             <component is="style">
-                /*类remnote界面 v0.04 */
+                /*类remnote界面 v0.05 */
                 /*全宽显示*/
                 .card__block .protyle-breadcrumb__bar span {
                 max-width: 100%;
@@ -86,6 +86,14 @@
                 /**/
                 .card__block span.protyle-breadcrumb__item.protyle-breadcrumb__item--active+svg+span {
                 display: none;
+                }
+                /* 隐藏最后一个面包屑 */
+                .card__block .protyle-breadcrumb__bar>span:last-child {
+                opacity: 0;
+                }
+                /* 隐藏面包屑悬浮显示 */
+                .card__block .protyle-breadcrumb__bar>span:last-child:hover {
+                opacity: 1;
                 }
             </component>
         </div>
@@ -175,7 +183,7 @@
 import { valid, satisfies } from "semver"
 
 
-function enableNewVersion(version:string, needVersion:string) {
+function enableNewVersion(version: string, needVersion: string) {
     if (valid(version) && satisfies(version, needVersion)) {
         return false
     }
@@ -193,6 +201,6 @@ const props = defineProps({
     dangerousFeature: Array<{ content: string, func: () => void }>
 })
 const needV2 = "< 2.8.1"
-const enableNew = enableNewVersion(eval("globalThis.siyuan.config.system.kernelVersion"),needV2)
-console.log("闪卡插件新版本要求拒绝:",needV2,", 启用新版本：",enableNew)
+const enableNew = enableNewVersion(eval("globalThis.siyuan.config.system.kernelVersion"), needV2)
+console.log("闪卡插件新版本要求拒绝:", needV2, ", 启用新版本：", enableNew)
 </script>
