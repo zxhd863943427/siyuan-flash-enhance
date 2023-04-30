@@ -12,6 +12,8 @@ export default class CardPlugin extends Plugin {
     public el: HTMLElement
     public sheet: HTMLElement
     public settingConfig : any
+    public longClickEvent : any
+    public that : any
 
     constructor() {
         super()
@@ -20,6 +22,7 @@ export default class CardPlugin extends Plugin {
         this.el.setAttribute('aria-label', '右键打开菜单')
         this.sheet = document.createElement('div')
         this.settingConfig = null
+        this.that = this
     }
 
     async onload() {
@@ -38,12 +41,14 @@ export default class CardPlugin extends Plugin {
             event.preventDefault()
         })
         //添加右键打开菜单功能
-        this.el.addEventListener('contextmenu', (event) => {
-            const menu = document.createElement('div')
-            const app = createApp(App,this.settingConfig)
-            app.mount(menu)
-            new Menu('CardPlugin').addItem({ element: menu }).showAtMouseEvent(event)
-            event.stopPropagation()
+        this.el.addEventListener('contextmenu', (event)=>{this.OpenMenu(event,this)})
+        //添加长按打开菜单功能
+        this.el.addEventListener("touchstart", (event)=>{
+            let changeEvent:any = event.targetTouches[0]
+            this.longClickEvent = setTimeout(()=>{this.OpenMenu(changeEvent,this)}, 1000)
+        })
+        this.el.addEventListener("touchend", ()=>{
+            clearTimeout(this.longClickEvent)
         })
         clientApi.addToolbarLeft(this.el)
 
@@ -76,5 +81,13 @@ export default class CardPlugin extends Plugin {
     async writeConfig(){
       let configText = JSON.stringify(settingList.getSetting())
       await this.writeStorage("enhanceConfig.json",configText)
+    }
+
+    OpenMenu(event:MouseEvent, that = this){
+        const menu = document.createElement('div')
+        const app = createApp(App,that.settingConfig)
+        app.mount(menu)
+        new Menu('CardPlugin').addItem({ element: menu }).showAtMouseEvent(event)
+        event.stopPropagation()
     }
 }
