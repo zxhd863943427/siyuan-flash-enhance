@@ -202,10 +202,10 @@ async function dynamiMarkCard(useBulitIn) {
     if (selectParent.tagName === "SPAN") {
         setTimeout(async ()=>{await dyAddCard();}, 500)
     }
-    //否则说明为取消标记，需要判断是否取消了所有标记
-    setTimeout(async ()=>{await removeCard();}, 500)
-    
-
+    else{
+        //否则说明为取消标记，需要判断是否取消了所有标记
+        setTimeout(async ()=>{await removeCard();}, 500)
+    }
     async function dyAddCard() {
         let MarkCardList = iterArr([selectParent], fliterDyMarkCard);
 
